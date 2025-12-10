@@ -1,0 +1,5 @@
+Write a C program to count the number of 1’s and 0’s in the binary representation of a number.
+ Write a C program to perform bitwise AND, OR, XOR, and NOT operations on integers.
+ Write a C program that takes a string and performs bitwise AND and XOR operations with a constant value (e.g., 127). (Simulates simple encryption idea)
+ Write a C program to implement left and right circular bit rotations.
+ Write a C program to swap two variables without using a third variable (using XOR).

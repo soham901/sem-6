@@ -1,0 +1,5 @@
+1. Write a program to reverse a string using pointers.
+2. Implement string functions like strlen, strcat, and strcmp.
+3. Implement a program to read and write a text file.
+4. Write a C program to test whether a number is prime or composite.
+5. Write a C program to generate prime numbers in a given range.
