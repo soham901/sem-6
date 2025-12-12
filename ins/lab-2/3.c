@@ -3,57 +3,31 @@
 #include <string.h>
 
 int main() {
-    FILE *file;
-    char filename[100];
-    char text[1000];
-    int choice;
-    
-    printf("Enter filename: ");
-    scanf("%s", filename);
-    
-    printf("1. Write to file\n2. Read from file\nEnter choice: ");
-    scanf("%d", &choice);
-    
-    if (choice == 1) {
-        file = fopen(filename, "w");
-        if (file == NULL) {
-            printf("Error opening file for writing!\n");
-            return 1;
-        }
-        
-        printf("Enter text to write (enter 'END' on new line to finish):\n");
+    FILE *f;
+    char fn[100], t[1000];
+    int c;
+
+    scanf("%s%d", fn, &c);
+
+    if (c == 1) {
+        f = fopen(fn, "w");
+        if (!f) return 1;
+
         getchar();
+        while (fgets(t, sizeof(t), stdin) && strcmp(t, "END\n")) 
+            fputs(t, f);
         
-        while (fgets(text, sizeof(text), stdin) != NULL) {
-            if (strcmp(text, "END\n") == 0) {
-                break;
-            }
-            fputs(text, file);
-        }
+        fclose(f);
+    } 
+    else if (c == 2) {
+        f = fopen(fn, "r");
+        if (!f) return 1;
+
+        while (fgets(t, sizeof(t), f))
+            printf("%s", t);
         
-        fclose(file);
-        printf("Text written to file successfully!\n");
-        
-    } else if (choice == 2) {
-        file = fopen(filename, "r");
-        if (file == NULL) {
-            printf("Error opening file for reading!\n");
-            return 1;
-        }
-        
-        printf("File contents:\n");
-        printf("------------------\n");
-        
-        while (fgets(text, sizeof(text), file) != NULL) {
-            printf("%s", text);
-        }
-        
-        printf("------------------\n");
-        fclose(file);
-        
-    } else {
-        printf("Invalid choice!\n");
+        fclose(f);
     }
-    
+
     return 0;
 }
