@@ -1,0 +1,4 @@
+1. User flow, competetion analysis, pain points
+2. Style guide (Color pallete, font families, all the components, icons, etc)
+3. Wireframes (prototype, highfieldility included)
+4.  
